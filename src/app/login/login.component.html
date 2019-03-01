@@ -1,0 +1,59 @@
+<br>
+<br>
+<div class="form-group col-2 offset-5">
+    <button class="btn btn-primary btn-block" data-toggle="modal"  data-target="#exampleModal">
+        Acceder
+    </button>
+
+</div>
+<br>
+<div class="form-group col-2 offset-5">
+        <button type="button" (click)="goToRegister()"  class="btn btn-default btn-block">
+            <a routerLink="/registro">Registrarse</a>
+        </button>
+</div>
+
+<div class="d-flex justify-content-center" *ngIf="SpinnerVisible">
+    <mat-spinner ></mat-spinner>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" >
+      
+     <div class="modal-body">    <!-- Start Modal-->
+
+        <form  class="form-horizontal"  [formGroup]="loginForm" (submit)="login()" (keyup.enter)="login()" (keydown.enter)="login()" action="login()">
+            <div class="row form-group d-flex justify-content-center">
+
+              <!-- <div class="row col-4 offset-8 text-center"> -->
+                  <label class="control-label" for="username">Número de empleado</label>
+              <!-- </div> -->
+              
+                <input id="numEmpleado" formControlName="numEmpleado"  maxlength="8" onfocusout="validateZero(this.id)" [(ngModel)]="numeroEmpleado" onkeypress="NumericValidation(this)" min="1" pattern="[0-9]*" inputmode="numeric" type="text"  class="form-control col-lg-4 col-md-4 col-sm-12" (keyup.enter)="login()" (keydown.enter)="login()" autocomplete="off" required>     
+                <p *ngIf="numEmpleado.invalid && (numEmpleado.dirty || numEmpleado.touched)" class="text-danger">*Campo requerido</p>
+            <p *ngIf="validationMessage" class="text-danger">Datos incorrectos</p>
+            
+
+            </div>
+           
+            <div class="form-group">
+                <button [disabled]="loading" type="submit" class="btn btn-primary" (click)="login()">Login</button>
+            </div>
+        </form>
+
+
+
+      </div>  <!-- End Modal-->
+      <div class="modal-footer" >
+        <button type="button" class="btn btn-secondary"  id="closeModal" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+
+
+  </div>
+</div>
+
+

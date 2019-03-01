@@ -1,0 +1,38 @@
+<notifier-container></notifier-container>
+<mat-card >
+      <span class="mat-title">
+        Ambientación Base de Clientes <br /> Banca Digital
+      </span>
+</mat-card>
+
+<div>
+  <!--
+<nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="currentUser">
+    <div class="navbar-nav">
+        <a class="nav-item nav-link" (click)="logout()">Logout</a>
+        <p>
+            <span class="glyphicon glyphicon-user"></span>
+            {{currentUser}}
+        </p>
+    </div>
+    
+</nav> 
+-->
+<router-outlet></router-outlet>
+
+
+</div>
+<script >
+  function cargarDatePicker () 
+  {
+      var dateNow = new Date();
+      $('#datetimepicker1').datetimepicker({
+        format: 'DD/MM/YYYY',
+        defaultDate:moment(dateNow),
+        maxDate: dateNow
+      });
+      $('#datetimepicker1').on('changeDate', function(e){ console.log(e.date); })
+  }
+
+  
+</script>

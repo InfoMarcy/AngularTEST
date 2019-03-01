@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/purple-green.css";
+/*@import "~bootstrap/dist/css/bootstrap.min.css";*/
+@import "~bootstrap/dist/css/bootstrap-grid.min.css";
+@import "~bootstrap/dist/css/bootstrap-reboot.min.css";
+@import "~angular-notifier/styles/core.css";
+@import "~angular-notifier/styles/themes/theme-material.css";
+@import "~angular-notifier/styles/types/type-success.css";
+@import "~angular-notifier/styles/types/type-error.css";
+
+
+@import "https://cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css";
+@import "https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css";
+

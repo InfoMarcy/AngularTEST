@@ -1,0 +1,80 @@
+<app-logout [nombre_usuario]=nombre_usuario></app-logout>
+<form data-toggle="validator" role="form">
+  <div class="form-group">
+      <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-12">
+            <div class="row">
+              <label class="control-label" for="numUsusariosInput">¿Cuantos usuarios?</label>
+              <input id="numUsuarioID" maxlength="5" onfocusout="validateZero(this.id)" [(ngModel)]="numeroUsuario" name="cantidadU" onkeypress="NumericValidation(this)" min="1" pattern="[0-9]*" inputmode="numeric" type="text"  class="form-control" required>     
+            </div>
+            <div class="row">
+              <label class="control-label" for="flujo">¿Qué flujo deseas probar?</label>
+              <select [(ngModel)]="selected" class="form-control" id="flujo" (change)="selectOption($event.target.value)" name="tipoFlujo" required>
+                <option  *ngFor="let flujo of flujos" [value] ="flujo.idFlujo"> {{flujo.nombreFlujo}} </option>
+              </select>
+            </div>
+            <div class="row">
+                <label class="form-check-label checkbox-inline" >
+                    <input onclick="cargarDatePicker()" name="personalizacionUsuarios" [(ngModel)]="personalizacionActivada" (change)="showCompPersonalizacion($event.target.value)" onchange="myFunction()" id="personalizar" type="checkbox" > 
+                    ¿Quieres personalizar los usuarios?
+                </label>
+            </div>
+        </div>
+        <div class="col-8 col-md-8 col-sm-12">
+          <div class=" panel panel-success">
+            <div class="panel-heading">
+                <h3 class="panel-title">Características</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-check form-check-inline row">
+                    <label class="form-check-label" *ngFor="let caracteristica of caracteristicasBinding" for="checkCaracteristica">
+                        {{ caracteristica.descripcion}}
+                      <input class="form-check-input"  type="checkbox" id="checkCaracteristica" [value]="caracteristica.id" >
+                    </label>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-center" *ngIf="SpinnerFlujosVisible">
+        <mat-spinner ></mat-spinner>
+      </div>
+
+      <div align="left" id="divPersonalizacion" *ngIf="personalizacionActivada">
+          
+        <app-personaliza-usuario [numeroUsuarios]=numeroUsuario></app-personaliza-usuario>
+          <!--
+        <div *ngIf="personalizacionExtra">
+            <h6 class="panel-title">Capture la información del resto de los usuarios</h6>
+            <app-personaliza-usuario [(clientes)]="clientes" [cantidad]=numeroUsuarioPersonalizacion></app-personaliza-usuario>
+        </div>-->
+        
+      </div>
+      
+  </div>
+</form>
+
+      <div class="row justify-content-md-center">
+        <div class="col-lg-2 col-sm-4">
+          <button class="form-control btn btn-primary" (click)="ambientarUsuarios()" [disabled]="SpinnerVisible">Ambientar</button>
+          
+        </div>
+      </div>
+      <br>
+      <div class="row justify-content-md-center">
+        <div class="" >
+            <button type="button"  class="btn btn-default" [disabled]="SpinnerVisible">
+                <a routerLink="/home" class="glyphicon glyphicon-eye-open" routerLinkActive="active" >Ver mis clientes</a>
+            </button>
+        </div>
+      </div>
+
+
+      <div class="d-flex justify-content-center" *ngIf="SpinnerVisible">
+        <mat-spinner ></mat-spinner>
+    </div>
+
+
+
+

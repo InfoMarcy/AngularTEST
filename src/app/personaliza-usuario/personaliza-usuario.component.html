@@ -1,0 +1,180 @@
+
+<form [formGroup]="clienteGroupValidations">
+
+    <div class="row">
+        <div class="col-lg-4 col-md-12 col-sm-12">
+            <label class="control-label" for="nombreCteInput">Nombre(s)</label>
+            <input maxlength="100" formControlName="Nombre" type="text" class="form-control" [(ngModel)]="cliente.nombre" name="nombre">
+            <p *ngIf="Nombre.invalid && (Nombre.dirty || Nombre.touched)" class="text-danger">*Campo requerido</p>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12">
+            <label for="apellidoPatCteInput">Apellido Paterno</label>
+            <input type="text" formControlName="ApellidoP" class="form-control"  [(ngModel)]="cliente.apellidoP" name="apellidoP" required>
+            <p *ngIf="ApellidoP.invalid && (ApellidoP.dirty || ApellidoP.touched)" class="text-danger">*Campo requerido</p>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12">
+            <label for="apellidoMatCteInput">Apellido Materno</label>
+            <input type="text" formControlName="ApellidoM" class="form-control" [(ngModel)]="cliente.apellidoM" name="apellidoM" required>
+            <p *ngIf="ApellidoP.invalid && (ApellidoM.dirty || ApellidoM.touched)" class="text-danger">*Campo requerido</p>
+        </div>
+    </div>
+
+  <div class="row">
+      <div class="col-lg-2 col-md-2 col-sm-12">
+          <label for="apellidoMatCteInput">Género</label>
+          <select formControlName="Genero" [(ngModel)]="cliente.genero" class="form-control" required>
+              <option value ="F">F</option>
+              <option value ="M">M</option>
+          </select>
+          <p *ngIf="Genero.invalid && (Genero.dirty || Genero.touched)" class="text-danger">*Campo requerido</p>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-12">
+          <label for="apellidoPatCteInput">Teléfono</label>
+          <input formControlName="Telefono" type="text" class="form-control"  [(ngModel)]="cliente.telefonoDomicilio" name="telefono" required>
+          <p *ngIf="Telefono.invalid && (Telefono.dirty || Telefono.touched)" class="text-danger">*Campo requerido</p>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-12">
+            <label for="apellidoPatCteInput">Celular</label>
+            <input formControlName="Celular" type="text" class="form-control"  [(ngModel)]="cliente.numCel" name="Celular" required>
+            <p *ngIf="Celular.invalid && (Celular.dirty || Celular.touched)" class="text-danger">*Campo requerido</p>
+        </div>
+      <div class="col-lg-4 col-md-4 col-sm-12">
+          <label for="apellidoMatCteInput">Correo Electrónico</label>
+          <input formControlName="Correo" type="text" class="form-control" [(ngModel)]="cliente.correo" name="email" required>
+          <p *ngIf="Correo.invalid && (Correo.dirty || Correo.touched)" class="text-danger">*Campo requerido</p>
+      </div>
+  </div>
+
+  <div class="row">
+      <div class="col-lg-4 col-md-12 col-sm-12">
+          <label for="apellidoMatCteInput">Curp</label>
+          <input formControlName="Curp" type="text" class="form-control" [(ngModel)]="cliente.curp" name="curp" required>
+          <p *ngIf="Curp.invalid && (Curp.dirty || Curp.touched)" class="text-danger">*Campo requerido</p>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <label for="apellidoPatCteInput">RFC</label>
+          <input formControlName="RFC" type="text" class="form-control"  [(ngModel)]="cliente.rfc" name="rfc" required>
+          <p *ngIf="RFC.invalid && (RFC.dirty || RFC.touched)" class="text-danger">*Campo requerido</p>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+            <label for="apellidoMatCteInput">Fecha Nacimiento</label>
+            
+            <div class="input-group" >
+                <input formControlName="FechaNac" class="form-control" placeholder="dd-mm-yyyy" name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+                </div>
+            </div>
+           
+        </div>
+      
+  </div>
+  
+
+  <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-12">
+          <label for="apellidoMatCteInput">Tipo Identificación</label>
+          <select formControlName="TipoID" [(ngModel)]="cliente.idIdentificacion" class="form-control" required>
+                <option value ="1">PASAPORTE</option>
+                <option value ="2">INE</option>
+            </select>
+          <p *ngIf="TipoID.invalid && (TipoID.dirty || TipoID.touched)" class="text-danger">*Campo requerido</p>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-12">
+          <label for="apellidoPatCteInput">OCR</label>
+          <input formControlName="OCR" type="text" class="form-control"  [(ngModel)]="cliente.ocr" name="ocr" required>
+          <p *ngIf="OCR.invalid && (OCR.dirty || OCR.touched)" class="text-danger">*Campo requerido</p>
+      </div>
+  </div>
+  <div class="row">
+      <div class="col-lg-4 col-md-12 col-sm-12">
+          <label for="apellidoMatCteInput">Calle</label>
+          <input formControlName="Calle" type="text" class="form-control" [(ngModel)]="cliente.calle" name="calle" required>
+          <p *ngIf="Calle.invalid && (Calle.dirty || Calle.touched)" class="text-danger">*Campo requerido</p>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <label for="apellidoPatCteInput">Número exterior</label>
+          <input formControlName="NumExt" type="text" class="form-control"  [(ngModel)]="cliente.numExt" name="numExt" required>
+          <p *ngIf="NumExt.invalid && (NumExt.dirty || NumExt.touched)" class="text-danger">*Campo requerido</p>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+          <label for="apellidoPatCteInput">Código postal</label>
+          <input formControlName="CodigoP" type="text" class="form-control"  [(ngModel)]="cliente.cp" name="codP" required>
+          <p *ngIf="CodigoP.invalid && (CodigoP.dirty || CodigoP.touched)" class="text-danger">*Campo requerido</p>
+      </div>
+  </div>
+  <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-12">
+            <label for="apellidoMatCteInput">Colonia</label>
+            <input formControlName="Colonia" type="text" class="form-control" [(ngModel)]="cliente.colonia" name="colonia" required>
+            <p *ngIf="Colonia.invalid && (Colonia.dirty || Colonia.touched)" class="text-danger">*Campo requerido</p>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-12">
+            <label for="apellidoPatCteInput">Delegación</label>
+            <input formControlName="Delegacion" type="text" class="form-control"  [(ngModel)]="cliente.delegacion" name="delegacion" required>
+            <p *ngIf="Delegacion.invalid && (Delegacion.dirty || Delegacion.touched)" class="text-danger">*Campo requerido</p>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-12">
+            <label for="apellidoPatCteInput">Estado</label>
+            <input formControlName="Estado" type="text" class="form-control"  [(ngModel)]="cliente.estado" name="estado" required>
+            <p *ngIf="Estado.invalid && (Estado.dirty || Estado.touched)" class="text-danger">*Campo requerido</p>
+        </div>
+  </div>
+  <br>
+  
+  <div class="row">
+    <div class="col-lg-2">
+        <p>
+            <button class="form-control btn btn-primary" (click)="addCliente()">Agregar Cliente</button>
+        </p>
+    </div>
+  </div>
+
+
+
+
+</form>
+
+<label>
+    Lista de Usuarios Agregados
+  </label>
+
+  <div>
+      <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Cantidad</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Apellidos</th>
+              <th scope="col">Teléfono</th>
+              <th scope="col">Fecha Nacimiento</th>
+              <th scope="col">Opciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of listaClientes">
+              <td>
+                <input (change)="changeCantidad($event.target.value,$event.target.id)"  id="{{item | json}}" value="{{item.cantidad}}" name="cantidadU" onfocusout="validateZero(this.id)" onkeypress="NumericValidation(this)" min="1" max="20" pattern="[0-9]*" inputmode="numeric" maxlength="2" type="text"  class="form-control col-xs-2" required>
+              </td>
+              <td>{{item.nombre}}</td>
+              <td>{{item.apellidoP}} {{item.apellidoM}}</td>
+              <td>{{item.telefonoDomicilio}}</td>
+              <td>{{item.fechaNac}}</td>
+              <td>
+                <button data-toggle="tooltip" title="Eliminar" class="btn btn-default" (click)="deleteItem(item)">
+                  <a>
+                      <span class="glyphicon glyphicon-remove"></span>
+                  </a>
+                </button>
+                <button data-toggle="tooltip" title="Editar" class="btn btn-default" (click)="editItem(item)">
+                  <a>
+                      <span class="glyphicon glyphicon-pencil"></span>
+                  </a>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+  </div>
+
+

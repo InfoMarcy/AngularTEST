@@ -1,0 +1,76 @@
+
+<app-logout [nombre_usuario]=nombre_usuario></app-logout>
+
+<div>
+  <span class="mat-subheading-2">Bienvenido(a)  &nbsp; <span class="glyphicon glyphicon-user"></span> &nbsp; {{currentUser}}
+  </span>
+</div>
+
+
+<br>
+
+<div class="row" >
+    <button type="button"  class="btn btn-default">
+        <a routerLink="/ambientacion" class="glyphicon glyphicon-plus" routerLinkActive="active">Ambientar</a>
+    </button>
+</div>
+
+<div class="d-flex justify-content-center">
+<label for="formGroupExampleInput">Clientes disponibles</label>
+</div>
+
+
+<table class="display responsive nowrap" cellspacing="0" width="100%" id="listClientes" >
+    <thead>
+      <tr>
+        <th class="desktop">Nombre</th>
+        <th class="not-desktop">Apellidos</th>
+        <!--<th scope="col">Género</th>-->
+        <th class="tablet">Célular</th>
+        <th class="tablet" >ICU</th>
+        <th class="mobile">Fecha Nacimiento</th>
+        <th class="mobile">OCR</th>
+        <th class="mobile-p">Usuario</th>
+        <th class="mobile-p">Tipo de Usuario</th>
+        <th class="mobile-p">Opciones</th>
+        <th class="mobile-p"><button class="btn btn-default btn-block"  (click)="deleteAll()" ><span class="glyphicon glyphicon-trash"></span></button></th>
+
+       
+      </tr>
+    </thead>
+    <tbody class="text-left text-uppercase">
+    </tbody>
+</table>
+
+<div class="d-flex justify-content-center" *ngIf="SpinnerVisible">
+    <mat-spinner ></mat-spinner>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="modalConfirmation" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" >
+      
+      <div class="modal-header">
+        
+        <h5 class="modal-title" id="exampleModalLabel">Confirmación</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" >
+          <div class="form-group">
+              <label for="lbl">¿Deseas Re-ambientar el cliente?</label>
+              <p>{{ clienteReambientacion.nombre }}</p>
+          </div>
+      </div>
+      <div class="modal-footer" >
+        <button type="button" class="btn btn-secondary"  id="closeModal" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="Reambientar()">Aceptar</button>
+      </div>
+    </div>
+  </div>
+</div>
+

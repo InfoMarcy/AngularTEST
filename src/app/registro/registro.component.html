@@ -1,0 +1,49 @@
+
+<div class="panel panel-default">
+        <div class="panel-heading"><h2>Registro</h2></div>
+
+
+        <div class="panel-body" >
+                <form [formGroup]="registerForm" class="col-6 offset-3">
+
+                        <div class="form-group">
+                            <label for="firstName">Número de empleado</label>
+                            <input maxlength="8" onkeypress="NumericValidation(this)" min="3" pattern="[0-9]*" inputmode="numeric"  [(ngModel)]="user.usuario" type="text" 
+                            formControlName="username" class="form-control"/>
+                            <!-- <div *ngIf="username.invalid && (username.dirty || username.touched)" class="alert alert-danger">
+                                
+                                <div *ngIf="username.errors.required">
+                                        El número de empleado es requerido
+                                </div>
+                               
+                               
+                            </div> -->
+                        </div>
+
+
+                        
+                        <div class="form-group">
+                            <label for="lastName">Correo electrónico</label>
+                            <input [(ngModel)]="user.correo" maxlength="50"  type="text" formControlName="correo" class="form-control" />
+                            <!-- <div *ngIf="correo.invalid && (correo.dirty || correo.touched)" class="alert alert-danger">El Correo electrónico es requerido</div> -->
+
+                           
+                        </div>
+                    
+                        <div class="form-group">
+                            <button [disabled]="loading" (click)="registrar()" class="btn btn-primary">Registrar</button> &nbsp;&nbsp;
+                            <a routerLink="/login" class="btn btn-primary">Cancelar</a>
+                        </div>
+                    </form>
+
+        </div>
+      </div>
+
+
+ 
+
+
+
+<div class="d-flex justify-content-center" *ngIf="SpinnerVisible">
+    <mat-spinner ></mat-spinner>
+</div>

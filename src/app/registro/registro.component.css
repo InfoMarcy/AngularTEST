@@ -1,0 +1,12 @@
+span.invalid-feedback {
+    display: none;
+}
+
+.invalid-feedback {
+    display: none;
+}
+
+
+.invalid-feedback[_ngcontent-c4], .valid-feedback[_ngcontent-c4] {
+    display: none;
+}
